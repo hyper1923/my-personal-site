@@ -18,13 +18,13 @@
 
     <br>
     <div style="display: flex; justify-content: center;">
-        <span style="font-family: poppins ; font-size:larger;">
+        <span id="text1">
             I am a 16 year old software developer. 
         </span>
     </div>
     
     <div style="display: flex; justify-content: center;">
-        <span style="font-family:poppins; font-size: larger;">
+        <span id="text2">
             I have projects that I have worked with C++, Python, C#, Assembly languages. 
         </span>
     </div>
@@ -63,6 +63,22 @@
         display: flex;
         justify-content: center;
     }
+
+    #text1{
+        font-family:poppins; font-size: larger;
+    }
+    #text2{
+        font-family:poppins; font-size: larger;
+    }
+
+    @media only screend and (max-width:959px) { 
+        #text1{
+        font-family:poppins; font-size: small;
+        }
+        #text2{
+            font-family:poppins; font-size:small;
+        }
+    }   
 
     #pano{
         align-items: center;
