@@ -35,7 +35,7 @@
         <a href="https://discordapp.com/users/327738121460383745"><img style="margin-left: 10;width: 40px; height: 40px;"src="https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/discord-512.png"></a>
         <a href="https://twitter.com/hyper1923"><img style="margin-left: 10;width: 40px; height: 40px;"src="https://cdn3.iconfinder.com/data/icons/picons-social/57/03-twitter-512.png"></a>
 
-        <div style="font-family: poppins;bottom: 0px;position: absolute;text-align: center;">
+        <div style="font-family: poppins;bottom: 0px;position: absolute;text-align: center;background: rgba(0,0,0,0.7); width: 100%;">
             <span class="text-1">hyper ❤️ vercel</span>
         </div>
     </div>
@@ -78,18 +78,30 @@
         font-family:poppins; font-size: larger;
     }
 
+    a:hover{
+        padding-top: 5px;
+        transition: 0.3s;
+    }
+
     @media only screen and (max-width: 768px) {
+        body{
+            background-image: url("https://raw.githubusercontent.com/hyper1923/my-personal-site/main/app/bg.gif");
+            background-repeat: no-repeat;
+            background-position:-100px 0px;
+            background-attachment: fixed;
+            background-size: cover;
+        }
         #text1{
         font-family:poppins; font-size: 10px;
         }
         #text2{
             font-family:poppins; font-size: 10px;
         }
-        .text-1{
-            color:white;
-        }
     }   
 
+    .text-1{
+            color:white;
+    }
     #pano{
         align-items: center;
         display: flex;
