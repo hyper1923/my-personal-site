@@ -4,6 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hyper1923 - index</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"></link>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <meta property="og:title" content="hyper1923"/>
+    <meta property="og:description" content="Welcome to my personal website!"/>
 </head>
 <body>
     <div id="pano">
@@ -39,6 +44,7 @@
         <a id="" href="https://github.com/hyper1923"><img style="width: 40px; height: 40px;"src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"></a>
         <a href="https://discordapp.com/users/327738121460383745"><img style="margin-left: 10;width: 40px; height: 40px;"src="https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/discord-512.png"></a>
         <a href="https://twitter.com/hyper1923"><img style="margin-left: 10;width: 40px; height: 40px;"src="https://cdn3.iconfinder.com/data/icons/picons-social/57/03-twitter-512.png"></a>
+        <a onclick="copyemail()"><img style="margin-left: 10;width: 40px; height: 40px;"src="https://cdn1.iconfinder.com/data/icons/picons-social/57/61-google-inbox-512.png"></a>
 
         <div style="font-family: poppins;bottom: 0px;position: absolute;text-align: center;background: rgba(0,0,0,0.7); width: 100%;">
             <span class="text-1">hyper ❤️ vercel</span>
@@ -48,18 +54,28 @@
 
 </body>
 <script>
+    let email = "hyper1923@protonmail.com"
     let cuicon = document.getElementById('cuicon');
     let icon = document.getElementById('hypericon');
     fetch("https://api.lanyard.rest/v1/users/327738121460383745")
         .then((res) => res.json())
         .then((data) => {
-            if(data.data.discord_status == "idle") cuicon.style.backgroundColor = "#B5AB19";
-            if(data.data.discord_status == "online") cuicon.style.backgroundColor = "#16A119";
-            if(data.data.discord_status == "dnd") cuicon.style.backgroundColor = "#B81113";
+            if(data.data.discord_status == "idle") cuicon.style.backgroundColor = "#FFE9A0";
+            if(data.data.discord_status == "online") cuicon.style.backgroundColor = "#C4DFAA";
+            if(data.data.discord_status == "dnd") cuicon.style.backgroundColor = "#FA7070";
             if(data.data.discord_status == "offline") cuicon.style.backgroundColor = "#4A4A44";
             icon.src = `https://cdn.discordapp.com/avatars/${data.data.discord_user.id}/${data.data.discord_user.avatar}.png`
             console.log(data);
         });
+
+    function copyemail(){
+        navigator.clipboard.writeText(email).then(function(){
+            toastr.success("Succesfully copied email.")
+        }, function(err){
+            toastr.warning("An error occured.")
+        })
+    }
+
 </script>
 <style>
     .icon{
@@ -67,7 +83,7 @@
             display: block;
             height: 10px;
             border-radius: 99999999px;
-            background: green;
+            background: #C4DFAA;
         }
 
     @font-face {
@@ -105,8 +121,13 @@
     }
 
     a:hover{
-        padding-top: 5px;
-        transition: 0.3s;
+        transform: translateY(5px);
+        transition: 0.4s all;
+    }
+
+    a{
+        transform: translateY(0px);
+        transition: 0.4s all;
     }
 
     @media only screen and (max-width: 768px) {
@@ -116,6 +137,10 @@
             background-position:-100px 0px;
             background-attachment: fixed;
             background-size: cover;
+        }
+        a{
+            transform: translateY(0px);
+            transition: 0.4s all;
         }
         #text1{
         font-family:poppins; font-size: large;
